@@ -1,0 +1,574 @@
+@font-face {
+    font-family: retroGaming;
+    src: url('../fonts/retroGaming.ttf');
+}
+
+body{
+    background: black;
+    color: white;
+    font-family: retroGaming;
+    overflow: hidden;
+}
+.modal{
+    padding: 20px;
+    border: 4px white solid;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+    background: black;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 2%;
+}
+.deathModal{
+    border: none;
+    width: 100vw;
+    height: 100vh;
+
+}
+.hideModal{
+    display: none;
+}
+.topModal{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+}
+.closeModal{
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*border: solid 2px white;*/
+    width: 5%;
+    height: 25px;
+    opacity: 0.7;
+}
+#typeModal{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ghostModal{
+    width: 5%;
+}
+.closeModal:hover{
+    opacity: 1;
+}
+.titleModal{
+    border: white 2px dotted;
+    width: 60%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.titleModalDeath{
+    width: 60%;
+    height: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+input{
+    font-family: retroGaming;
+}
+.descriptionModal{
+    height: 40%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: 20px;
+    gap: 10px;
+}
+.descriptionModalDeath{
+    height: 40%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 40px;
+    gap: 10px;
+}
+#zoneBtnModal{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 20%;
+    gap: 20px;
+}
+.gameTitle, #connexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    text-transform: uppercase;
+}
+.clickTitle{
+    cursor: pointer;
+}
+
+#connexion{
+    /*animation: blink 1.5s linear infinite;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+#connexion:hover{
+    cursor: default;
+}
+#connexion > a{
+    text-decoration: none;
+    color: white;
+}
+#connexion > a:link{
+    text-decoration: none;
+    color: white;
+}
+#connexion > a:hover{
+    cursor: default;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+#appBorder{
+    border: white 10px double;
+    height: 80vh;
+    width: 90vw;
+    margin: auto;
+}
+
+/*#containApp{
+    background: green;
+    !*overflow: hidden;*!
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}*/
+#app{
+    /*overflow: hidden;*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*Buttons*/
+#menu{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.classicBtn, .classicSelectBtn, .classicSelectBtnClass{
+    border: black 2px solid;
+    background: dimgrey;
+    /*background: black;*/
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    min-width: 250px;
+    /*max-width: 400px;*/
+    padding: 10px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*transition: all 200ms ease-in-out;*/
+    opacity: 0.6;
+}
+.classicBtn:hover{
+    opacity: 1;
+    border: white 2px solid;
+}
+.classicSelectBtnFocus{
+    opacity: 1;
+    border: white 2px solid;
+}
+.classicSelectBtn:hover, .classicSelectBtnClass:hover{
+    opacity: 1;
+}
+#nameCreation{
+    color: white;
+    background: black;
+    border: white 2px solid;
+    min-width: 250px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+ }
+.shakeInput{
+    animation: shaking 0.5s linear alternate-reverse;
+}
+.nameInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+#selectClass{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.block{
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 60%;
+    height: 30vh;
+    overflow: scroll;
+}
+.blockStats{
+    align-items: flex-start;
+}
+.blockText{
+    align-items: flex-start;
+}
+#creationInfo{
+    gap: 0px;
+    height: 40%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#creationMenu{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    gap: 60px;
+}
+#creationBtn{
+    height: 5%;
+}
+
+@keyframes shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(20px) }
+    50% { transform: translateX(-20px) }
+    75% { transform: translateX(20px) }
+    100% { transform: translateX(0) }
+}
+
+
+.selectionRow{
+    background: dimgrey;
+    opacity: 0.6;
+}
+.colTable{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border: 2px solid black;
+}
+.selectionRow:hover{
+    opacity: 1;
+}
+
+.selectionRow > td:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+/*.selectionRow:focus{*/
+/*    opacity: 1;*/
+/*}*/
+#selectCharacterTable{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 95%;
+    overflow: auto;
+    border-spacing: 5px;
+}
+#selectionTable{
+    width: 100%;
+    padding: 50px;
+}
+.selectRowCharacter{
+    opacity: 1;
+}
+.selectColCharacter{
+    border-color: white;
+}
+#btnSelectCharacter{
+    height: 250px;
+    display: flex;
+    gap: 5px;
+}
+
+#chooseEvent{
+    width: 60%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+.square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    background: white;
+}
+.square:hover{
+    opacity: 1;
+}
+.square:hover + .squareTitle{
+    color: white;
+}
+.squareTitle{
+    cursor: default;
+    text-transform: uppercase;
+    color: black;
+}
+.squareZone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#characterHud{
+    /*border: 2px solid white;*/
+    position: absolute;
+    z-index: -3;
+    top: 11vh;
+    width: 60%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.characterName{
+
+}
+
+#chooseObjectBtn{
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*gap: 20px;*/
+}
+#lifeCharacter, #lifeEnemy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#lifeEnemy{
+    flex-direction: column;
+    gap: 10px;
+}
+#hpSquares, #enemyHpSquares{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+#enemyHpSquares{
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.enemyName{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.enemyDamage{
+    font-size: 18px;
+}
+.fightScreen{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.hp{
+    background: white;
+    width: 15px;
+    height: 15px;
+}
+.disableHp{
+    background: dimgrey;
+}
+#hud{
+    cursor: default;
+    font-size: 18px;
+    width: 85vw;
+    /*position: absolute;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    left: 0;
+    right: 0;
+    text-align: center;
+    /*z-index: -3;*/
+    /*top: 10vh;*/
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+#inventoryHud{
+    position: absolute;
+    z-index: 3;
+    top: 10vh;
+    left: 6vw;
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+#equipmentHud{
+    position: absolute;
+    z-index: 3;
+    top: 10vh;
+    right: 6vw;
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+}
+.hudElement{
+    opacity: 0.7;
+    cursor: pointer;
+}
+.hudElement:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.disabledHudElement{
+    opacity: 0.7;
+}
+
+#dialog{
+    font-size: 22px;
+    line-height: 1.5;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: auto;
+    height: 20vh;
+    width: 50vw;
+    border: white 2px solid;
+}
+#eventDialog{
+    width: 60%;
+    height: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vh;
+}
+.screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    width: 25vw;
+}
+#eventTitle{
+    animation: blink 2s linear infinite;
+    border: 1px solid white;
+    padding: 5px 10px 5px 10px;
+    text-transform: uppercase;
+}
+#eventTitle:hover{
+    cursor: default;
+    animation: paused;
+}
+#btnNextPlace{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    /*width: 100%;*/
+}
+.btnNextPlace{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    /*width: 100%;*/
+}
+.dice{
+    font-size: 60px;
+}
+.diceScore{
+    animation: growUp 1s linear;
+}
+@keyframes growUp {
+    0% {
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
