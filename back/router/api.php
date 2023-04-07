@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-include_once dirname(__DIR__).'/controllers/CharacterController.php';
-include_once dirname(__DIR__).'/controllers/ClassController.php';
-include_once dirname(__DIR__).'/controllers/InventoryController.php';
-include_once dirname(__DIR__).'/controllers/EventController.php';
-include_once dirname(__DIR__).'/controllers/EquipmentController.php';
-include_once dirname(__DIR__).'/controllers/UserController.php';
-include_once dirname(__DIR__).'/connection/Middleware.php';
+include_once __DIR__.'/../controllers/CharacterController.php';
+include_once __DIR__.'/../controllers/ClassController.php';
+include_once __DIR__.'/../controllers/InventoryController.php';
+include_once __DIR__.'/../controllers/EventController.php';
+include_once __DIR__.'/../controllers/EquipmentController.php';
+include_once __DIR__.'/../controllers/UserController.php';
+include_once __DIR__.'/../connection/Middleware.php';
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");

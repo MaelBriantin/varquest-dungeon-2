@@ -10,8 +10,6 @@ const PASSWORD = 'password';
 
 require_once 'Controller.php';
 
-
-
 class Controller
 {
     function __construct()
