@@ -1,24 +1,26 @@
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\CONFIGURATION////////////////////////////////////////////////////
-Une copie de la base est présente dans le dossier. Par défaut, la DB s'appelle 'varquest_dungeon' 
+### CONFIGURATION
+There is a dump of a sql database (/database/varquest_dungeon_2)
 
-Une fois la base installée, modidier les données de connexions à la base de données dans le fichier back/controllers/Controller.php 
-Il y a 4 constantes de connexion
+Once the base is installed, modify the database connection data in the file back/controllers/Controller.php.
 
-const SERVER_NAME = 'adresse du serveur local';
-const DB_NAME = 'nom de la base de données';
-const USERNAME = 'nom de l'utilisateur MySQL;
-const PASSWORD = 'mot de passe associé';
+There are 4 connection constants:
 
-
-Lancer la commande php -S localhost:8080 /back/router/api.php depuis la racine du dossier
-
-Ouvrir le fichier /front/index.html avec un navigateur Web
+```
+const SERVER_NAME = 'local server address';
+const DB_NAME = 'database name';
+const USERNAME = 'MySQL user name';
+const PASSWORD = 'associated password';
+```
 
 
-Si un autre port et/ou une autre IP que localhost:8080 sont utilisés pour faire tourner le back, 
-changer la valeur de la constante ip dans le fichier /front/js/config.js
+Run the command php -S localhost:8080 /back/router/api.php from the root of the folder.
 
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\NOTES//////////////////////////////////////////////////////
+Open the file /front/index.html with a web browser.
 
-Le jeu est encore en cours de développement coté front. Il manque l'intégration du système de combat,
-la génération de l'évènement 'Rencontre' et quelques bugs au niveau de la gestion de l'inventaire / equipement.
+If a different port and/or IP than localhost:8080 are used to run the backend, change the value of the "ip" constant in the file /front/js/config.js.
+
+*Well, that's the theory... I really should take the time to update these instructions...*
+
+### NOTES
+
+This game is a school project completed in 2 weeks, so... some serious issues persist. But it was a good way to learn some programming concepts.
