@@ -1,14 +1,18 @@
 #### CONFIGURATION
-
 Create a MySQL or MariaDB database.
 
-Run the command ``bash init.sh`` from the root directory and set the correct informations as asked.\
+Run the command `bash init.sh` from the root directory and provide the required information as prompted:
+- The name of the server host (localhost by default).
+- The port for this server (3306 by default).
+- Your SQL user.
+- The SQL password.
+- The name of the created database.
+
 Your database will be updated with all the values required to start the game (basic characters, enemies, weapons, events, etc.).
 
-You can now start the server with ``php run.php``: the php server will run on [localhost:8080](http://localhost:8080).\
-If you wish, you can leave the server running in the background with ``php run.php -b``. Run ``php stop.php`` to stop it.
+You can now run the command `bash start.sh`. Your browser will open a window with the game started. That's all!
 
-Run the command ```bash start.sh```. That's it. You're good to go!
+To properly stop the game, run `bash stop.sh`.
 
 ### NOTES
 
