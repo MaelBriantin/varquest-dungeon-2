@@ -1,26 +1,15 @@
-### CONFIGURATION
-There is a dump of a sql database (/database/varquest_dungeon_2)
+#### CONFIGURATION
 
-Once the base is installed, modify the database connection data in the file back/controllers/Controller.php.
+Create a MySQL or MariaDB database.
 
-There are 4 connection constants:
+Run the command ``bash init.sh`` from the root directory and set the correct informations as asked.\
+Your database will be updated with all the values required to start the game (basic characters, enemies, weapons, events, etc.).
 
-```
-const SERVER_NAME = 'local server address';
-const DB_NAME = 'database name';
-const USERNAME = 'MySQL user name';
-const PASSWORD = 'associated password';
-```
+You can now start the server with ``php run.php``: the php server will run on [localhost:8080](http://localhost:8080).\
+If you wish, you can leave the server running in the background with ``php run.php -b``. Run ``php stop.php`` to stop it.
 
-
-Run the command php -S localhost:8080 /back/router/api.php from the root of the folder.
-
-Open the file /front/index.html with a web browser.
-
-If a different port and/or IP than localhost:8080 are used to run the backend, change the value of the "ip" constant in the file /front/js/config.js.
-
-*Well, that's the theory... I really should take the time to update these instructions...*
+Run the command ```bash start.sh```. That's it. You're good to go!
 
 ### NOTES
 
-This game is a school project completed in 2 weeks, so... some serious issues persist. But it was a good way to learn some programming concepts.
+This game was a school project completed in 2 weeks, so... serious problems remain. But it was a good way to learn some programming concepts.

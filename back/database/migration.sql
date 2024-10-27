@@ -49,7 +49,7 @@ CREATE TABLE `characters` (
 
 LOCK TABLES `characters` WRITE;
 /*!40000 ALTER TABLE `characters` DISABLE KEYS */;
-INSERT INTO `characters` VALUES (1,NULL,NULL,NULL,'Gobelin','Enemy',20,20,10,0,0,0,'Enemy',0),(2,NULL,NULL,NULL,'Orc','Enemy',30,30,0,10,0,0,'Enemy',0),(3,NULL,NULL,NULL,'Troll','Enemy',40,40,0,15,0,0,'Enemy',0),(4,NULL,NULL,NULL,'Sorcier','Enemy',40,40,0,0,15,0,'Enemy',0),(5,NULL,NULL,NULL,'Dragon Rouge','Enemy',100,100,0,20,10,0,'Enemy',0),(62,NULL,NULL,NULL,'Lanfeust','Guerrier',55,39,5,20,0,0,'Corps à corps',4),(63,NULL,NULL,NULL,'Cixi','Magicienne',40,12,5,0,15,0,'Magie',5),(64,NULL,NULL,NULL,'Warwi','Magicienne',50,0,5,0,15,0,'Magie',3),(65,NULL,NULL,NULL,'théo','Guerrier',65,52,5,20,0,0,'Corps à corps',8);
+INSERT INTO `characters` VALUES (1,NULL,NULL,NULL,'Gobelin','Enemy',20,20,10,0,0,0,'Enemy',0),(2,NULL,NULL,NULL,'Orc','Enemy',30,30,0,10,0,0,'Enemy',0),(3,NULL,NULL,NULL,'Troll','Enemy',40,40,0,15,0,0,'Enemy',0),(4,NULL,NULL,NULL,'Sorcier','Enemy',40,40,0,0,15,0,'Enemy',0),(5,NULL,NULL,NULL,'Dragon Rouge','Enemy',100,100,0,20,10,0,'Enemy',0);
 /*!40000 ALTER TABLE `characters` ENABLE KEYS */;
 UNLOCK TABLES;
 

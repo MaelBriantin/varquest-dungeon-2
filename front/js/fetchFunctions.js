@@ -203,7 +203,7 @@ const removeEquipement = (object_id, type, props) => {
         .then(res => res.json())
         .then(res => {
             updateInventory(selectedCharacter.info.id, object_id, "more", 1)
-            if (props !== []) {
+            if (Array.isArray(props) && props.length > 0) {
                 let propsEquipment = JSON.parse(props)
                 let target = propsEquipment[0];
                 let operator = propsEquipment[1];

@@ -1,25 +1,14 @@
 <?php
-////////////////////////////////////DB config/////////////////////////////////////////
 
-const SERVER_NAME = 'localhost';
-const DB_NAME = 'varquest_dungeon';
-const USERNAME = 'root';
-const PASSWORD = 'password';
+require_once __DIR__ . '/../config/helpers.php';
+use function Helpers\{env};
 
-//////////////////////////////////////////////////////////////////////////////////////
+class Controller {
 
-require_once 'Controller.php';
-
-class Controller
-{
-    function __construct()
-    {
-
-    }
 
     public function postData ($sql) {
         try {
-            $pdo = new PDO("mysql:host=".SERVER_NAME.";dbname=".DB_NAME, USERNAME, PASSWORD);
+            $pdo = new PDO("mysql:host=".env('DB_HOST').":".env('DB_PORT').";dbname=".env('DB_NAME'), env('DB_USER'), env('DB_PASS'));
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->prepare($sql)->execute();
             return $pdo->lastInsertId();
@@ -30,7 +19,7 @@ class Controller
 
     public function getData ($sql) {
         try {
-            $pdo = new PDO("mysql:host=".SERVER_NAME.";dbname=".DB_NAME, USERNAME, PASSWORD);
+            $pdo = new PDO("mysql:host=".env('DB_HOST').":".env('DB_PORT').";dbname=".env('DB_NAME'), env('DB_USER'), env('DB_PASS'));
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sth = $pdo->prepare($sql);
             $sth->execute();
@@ -42,7 +31,7 @@ class Controller
 
     public function getAllData ($sql) {
         try {
-            $pdo = new PDO("mysql:host=".SERVER_NAME.";dbname=".DB_NAME, USERNAME, PASSWORD);
+            $pdo = new PDO("mysql:host=".env('DB_HOST').":".env('DB_PORT').";dbname=".env('DB_NAME'), env('DB_USER'), env('DB_PASS'));
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sth = $pdo->prepare($sql);
             $sth->execute();
