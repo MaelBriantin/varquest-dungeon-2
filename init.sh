@@ -7,7 +7,7 @@ if [ ! -f $ENV_FILE ]; then
     echo ".env file not found. Creating a new one..."
     
     read -p "Enter the database host (default: localhost): " DB_HOST
-    DB_HOST=${DB_HOST:-localhost}
+    DB_HOST=${DB_HOST:-127.0.0.1}
     
     read -p "Enter the database port (default: 3306): " DB_PORT
     DB_PORT=${DB_PORT:-3306}
@@ -43,8 +43,10 @@ SQL_FILE="back/database/migration.sql"
 if [ -f $SQL_FILE ]; then
     /usr/bin/mysql -h $DB_HOST -P $DB_PORT -u $DB_USER -p$DB_PASS $DB_NAME < $SQL_FILE
     if [ $? -eq 0 ]; then
+        chmod +x start.sh
+        chmod +x stop.sh
         echo "Database successfully updated!"
-        echo "Run 'bash start.sh' to start the game"
+        echo "Run 'bash start.sh' or './start.sh' to start the game"
     else
         echo "Error occurred while updating the database"
         exit 1

@@ -127,7 +127,6 @@ const inventoryModal = (objectId) => {
         .then(res => res.json())
         .then(res => {
             let effect = exctractEffect(res.object_properties)
-            //console.log(res.object_properties)
             modal.innerHTML += `<div class="topModal"><div class="ghostModal"></div><div id="typeModal">Objet de l'inventaire</div><div class="closeModal" id="closeModal${res.object_id}">x</div></div>
                         <div class="titleModal"><div id="titleModal">${res.object_name}</div></div>
                         <div class="descriptionModal">
@@ -164,9 +163,7 @@ const inventoryModal = (objectId) => {
         })
 }
 
-const equipObject = (object_id, props, qty, object_type) => {
-    console.log('type: '+object_type)
-    dropObject(object_id, qty)
+const equipObject = (object_id, props, qty, object_type) => {    dropObject(object_id, qty)
     let propsArray = JSON.parse(props)
     let target = propsArray[0];
     let operator = propsArray[1];
@@ -198,12 +195,12 @@ const equipObject = (object_id, props, qty, object_type) => {
 }
 
 const removeEquipement = (object_id, type, props) => {
-    console.log(props)
     fetch(`http://${ip}?delete=equipment&character_id=${selectedCharacter.info.id}&object_type=${type}`)
         .then(res => res.json())
         .then(res => {
             updateInventory(selectedCharacter.info.id, object_id, "more", 1)
-            if (Array.isArray(props) && props.length > 0) {
+            if (props !== null && props.length){
+                console.log(props)
                 let propsEquipment = JSON.parse(props)
                 let target = propsEquipment[0];
                 let operator = propsEquipment[1];
@@ -262,17 +259,11 @@ const addEquipment = (object_id, object_type, props, qty, objectClassType) => {
         equipedItem = selectedCharacter.equipment['armor_id']
         equipedProps = selectedCharacter.equipment['armor_properties']
     }
-    //console.log(equipedItem)
-    //console.log(object_id)
-    // if (selectedCharacter.equipment.armor_id != null || selectedCharacter.equipment.weapon_id != null){
-    //         removeEquipement(object_id,object_type, props)
-    // }
     if(selectedCharacter.equipment['armor_id'] == null || selectedCharacter.equipment['weapon_id'] == null){
         fetch(`http://${ip}?find=class&col=name&value=${selectedCharacter.info.class}`)
             .then(res => res.json())
             .then(res => {
                 let characterClassType = res.type
-                console.log(characterClassType)
                 if((objectClassType === characterClassType || objectClassType === "Toutes") && equipedItem !== object_id && selectedCharacter.equipment[type] === null){
                     fetch(`http://${ip}?update=equipment&${type}=${object_id}&character_id=${selectedCharacter.info.id}`)
                         .then(res => res.json())
@@ -341,7 +332,6 @@ const dropObject = (object_id, qty) => {
         .then(res => res.json())
         .then(res => {
             displayHud(selectedCharacter.info.id)
-            console.log(res)
             inventoryModal(object_id)
             if(newQty === 0){
                 modal.innerHTML = ""
@@ -367,7 +357,6 @@ const updateInventory = (characterId, objectId, operator, qty) =>
         .then(res => res.json())
         .then(res => {
             displayHud(characterId)
-            console.log(res)
         })
 }
 
@@ -377,7 +366,6 @@ const updateLife = (operator, hp) =>
         .then(res => res.json())
         .then(res => {
             displayHud(selectedCharacter.info.id)
-            //console.log(res)
         })
 }
 

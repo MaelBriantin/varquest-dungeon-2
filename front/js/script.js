@@ -154,7 +154,6 @@ const startFight = (fightEvent) => {
     let enemy = fightEvent.enemy
     let enemyPronoun = enemy.name === "Orc" ? "l'" : "le ";
     let enemyPronounCap = enemy.name === "Orc" ? "L'" : "Le ";
-    console.log(enemy)
     displayEventDialog(eventType, `Un ${enemy.name} se dresse devant vous. Pour savoir qui de vous deux attaquera en premier, vous devez lancer un dé du Destin.`, 'lancer le dé')
     let screen = document.getElementById('screen')
     let btn = document.getElementById("eventBtn")
@@ -178,9 +177,7 @@ const startFight = (fightEvent) => {
                 let enemyDice = document.getElementById('enemyDice')
                 let enemyDiceDisplay = document.getElementById('enemyDiceDisplay')
                 let enemyDiceBtnNext = document.getElementById('enemyDiceBtnNext')
-                console.log(enemyDiceBtnNext)
                 enemyDice.addEventListener('click', () => {
-                    console.log(enemyDiceBtnNext)
                     enemyDiceBtnNext.innerHTML = ""
                     let enemyInterval = dice(enemyDiceDisplay, max)
                     setTimeout(() => {
@@ -316,7 +313,6 @@ const heroTurn = () => {
     fightBtnZone.innerHTML = `<div class="classicBtn" id="heroTurnBtn">Suivant</div>`
     let heroTurnBtn = document.getElementById('heroTurnBtn')
     heroTurnBtn.addEventListener('click', () => {
-        console.log('lol')
         enemyState.currentHp -= heroDamage
         enemyHud(true)
         if (enemyState.currentHp <= 0){
@@ -406,7 +402,6 @@ const fightSystem = (typeOfEvent, enemy, isHeroStart) => {
         'maxDamage': Math.round(((enemy.str + enemy.dex + enemy.intel) / 3) * 3),
         'minDamage': Math.round(((((enemy.str + enemy.dex + enemy.intel) / 3) * 3) / 4 ) * 3)
     }
-    console.log(enemyState['pronounCap'])
     app.innerHTML = `<div id="eventDialog">
                         <div id="eventTitle">évènement en cours : ${typeOfEvent}</div>
                         <div id="fightScreenId" class="screen"></div>
@@ -421,7 +416,6 @@ const fightSystem = (typeOfEvent, enemy, isHeroStart) => {
     enemyHud()
     if(isHeroStart){
         let heroFirstAttackDamage = Math.floor(Math.random() * (selectedCharacter.damage.max - selectedCharacter.damage.min + 1)) + selectedCharacter.damage.min
-        console.log('heroDamage: '+heroFirstAttackDamage)
         let firstAttackDialog = selectedCharacter.info.class_type === 'Magie' ?
             `La magie s'éveille en vous et fait luire vos yeux dans l'obscurité de la pièce. Vous concentrez votre énergie aux creux de vos mains et formez une sphère de mana pure que vous projetez aussitôt droit vers ${enemyState.pronoun}${enemyState.name}.` :
             `Prenant un peu d'élant, vous fonçez droit vers ${enemyState.pronoun}${enemyState.name} et abattez votre arme sur lui.`
@@ -450,7 +444,6 @@ const fightSystem = (typeOfEvent, enemy, isHeroStart) => {
         })
     } else {
         let enemyFirstAttackDamage = Math.floor(Math.random() * (enemyState.maxDamage - enemyState.minDamage + 1)) + enemyState.minDamage
-        console.log('enemyDamage: '+enemyFirstAttackDamage)
         fightDialog.innerHTML = `Vous recevez un coup violent. ${enemyState.pronounCap}${enemyState.name} vous inflige ${enemyFirstAttackDamage} de points de dégâts.`
         let hud = document.getElementById("characterHud")
         setTimeout(() => {
@@ -479,7 +472,6 @@ const reRollDice = (enemyPronounCap, enemyName, enemy) => {
     let reRollDiceId = document.getElementById('reRollDiceId')
     let reRollScreenId = document.getElementById('reRollScreenId')
     let reRollNextPlaceId = document.getElementById('reRollNextPlaceId')
-    console.log(reRollDiceId)
     reRollDiceId.addEventListener('click', () => {
         reRollNextPlaceId.innerHTML = ""
         let characterScore
@@ -554,7 +546,6 @@ const dice = (screen, max) => {
 
 
 const startEvent = (type) => {
-    console.log(selectedCharacter)
     fetch(`http://${ip}?create=event&type=${type}`)
         .then(res => res.json())
         .then(res => {
@@ -597,7 +588,6 @@ const startEvent = (type) => {
 }
 
 const startEncounter = (encounterEvent) => {
-    console.log(encounterEvent)
     displayFightDialog('Rencontre', `Quel objet allez vous choisir entre ${encounterEvent.object[0].name} et ${encounterEvent.object[1].name} ? Vous ne pouvez en garder qu'un, choisissez méticuleusement...`, '', '', '', "chooseObjectBtn")
     let chooseObjectBtn = document.getElementById('chooseObjectBtn')
     chooseObjectBtn.innerHTML = `<div class="classicBtn" id="object1">${encounterEvent.object[0].name}</div>
@@ -623,12 +613,10 @@ const save = (characterState) => {
     localStorage.setItem('localCharacter', JSON.stringify(characterState))
 }
 const displayHud = (characterId, isHurt) => {
-    //console.log(selectedCharacter)
     fetch(`http://${ip}?find=character&id=${characterId}`)
         .then(res => res.json())
         .then(res => {
             save(res)
-            console.log(selectedCharacter)
             let maxHp = res.info.max_hp
             let currentHp = res.info.current_hp
             let diffHp = maxHp - currentHp

@@ -3,7 +3,7 @@
 $options = getopt("b::");
 $background = isset($options['b']);
 
-$command = 'php -S localhost:8080 back/public/index.php';
+$command = 'php -S 127.0.0.1:8080 back/public/index.php';
 $output = [];
 $returnVar = 0;
 
@@ -18,10 +18,10 @@ if ($returnVar !== 0) {
 }
 
 $port = 8080;
-$documentRoot = __DIR__ . '/back/public/index.php';
+$documentRoot = __DIR__ . '/../public/index.php';
 
 if (!$background) {
-    exec("php -S localhost:{$port} -t " . dirname($documentRoot), $output, $return_var);
+    exec("php -S 127.0.0.1:{$port} -t " . dirname($documentRoot), $output, $return_var);
 } else {
     echo "Server started at http://localhost:{$port}\n";
 }

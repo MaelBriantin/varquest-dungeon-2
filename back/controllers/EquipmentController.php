@@ -4,6 +4,8 @@ require_once 'Controller.php';
 require_once 'ObjectController.php';
 require_once 'CharacterController.php';
 require_once 'ClassController.php';
+require_once __DIR__ . '/../config/helpers.php';
+use function Helpers\{env};
 
 class EquipmentController extends Controller
 {
@@ -130,9 +132,9 @@ class EquipmentController extends Controller
             armor.properties AS armor_properties,
             armor.class AS armor_class
                 FROM equipment
-                LEFT JOIN varquest_dungeon.objects AS weapon
+                LEFT JOIN ".env('DB_NAME').".objects AS weapon
                     ON equipment.weapon_id = weapon.id
-                LEFT JOIN varquest_dungeon.objects AS armor
+                LEFT JOIN ".env('DB_NAME').".objects AS armor
                     ON equipment.armor_id = armor.id
                 WHERE equipment.character_id = $character_id";
         return $this->getData($sql);
